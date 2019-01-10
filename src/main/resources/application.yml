@@ -1,0 +1,39 @@
+
+server:
+  port: 8081
+spring:
+  output:
+    ansi:
+      enabled: DETECT
+  mvc:
+    favicon:
+      enabled: false
+  redis:
+    host: localhost
+    port: 6379
+    timeout: -1
+logging:
+  file: snooker-api-java.log
+  level: INFO
+
+#赛事信息爬虫链接
+crawler:
+  match:
+    list: http://match.fri.tv/matchlist.aspx?year={0}&bisaicate={1}&currPage={2}
+    schedule: http://match.fri.tv/match_schedule.aspx?bsid={0}
+    info: http://www.fri.tv/match_info.aspx?bsid={0}
+    against: http://match.fri.tv/html/against/{0}.html
+    dz: http://www.fri.tv/match-layer.aspx?dzid={0}
+    matchdetail: http://api.fri.tv/api/matchdetail/info/?dzid={0}&matchdate_get={1}
+    singlelive: http://api.fri.tv/api/matchdetail/textlive?dzid={0}&player1en={1}&player2en={2}
+  player:
+    ranking: http://www.worldsnooker.com/rankings/
+    info: http://player.fri.tv/playerData.aspx?uid={0}
+    pk: http://www.fri.tv/playerPk.aspx?player1name={0}&player2name={1}
+    nameList: http://www.fri.tv/sysmanage/bisaimgr/ajax/get_qiuyuan.aspx?query={0}
+
+#ms
+ms:
+  admin:
+    account: admin
+    password: 293f1a4edd58f5f7cce0cb0c3da3b904
