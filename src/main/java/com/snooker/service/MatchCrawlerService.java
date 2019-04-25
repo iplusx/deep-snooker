@@ -200,9 +200,6 @@ public class MatchCrawlerService {
         return Collections.emptyList();
     }
 
-    @Cacheable(value = "schedule:today", key = "'schedule:today'")
-
-
     /**
      * 获取赛事列表相关的元素
      *
