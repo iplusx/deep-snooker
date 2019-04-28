@@ -77,7 +77,7 @@ public class MatchCrawlerService {
             //链接
             String href = a.attr("href");
             //id
-            String id = href.substring(href.lastIndexOf("/") + 1, href.lastIndexOf("."));
+            String id = href.substring(href.lastIndexOf("?bsid=") + 6);
             //名称
             String name = a.text();
             Elements tds = tr.select("td");
