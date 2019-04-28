@@ -12,8 +12,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
@@ -38,7 +36,6 @@ import static com.snooker.util.JsoupUtil.getElements;
 @Service
 public class MatchCrawlerService {
     private static final String DETAIL_DATE = "2011%2f11%2f11+11%3a11%3a11";
-    private static Logger logger = LoggerFactory.getLogger(MatchCrawlerService.class);
 
     @Value("${crawler.match.schedule}")
     private String scheduleListUrl;
@@ -81,7 +78,6 @@ public class MatchCrawlerService {
             String href = a.attr("href");
             //id
             String id = href.substring(href.lastIndexOf("?bsid=") + 6);
-            logger.info("href : {}\tid : {}", href, id);
             //名称
             String name = a.text();
             Elements tds = tr.select("td");
