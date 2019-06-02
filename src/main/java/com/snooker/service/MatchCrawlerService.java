@@ -80,13 +80,17 @@ public class MatchCrawlerService {
             String id = href.substring(href.lastIndexOf("?bsid=") + 6);
             //名称
             String name = a.text();
+            name = name.substring(4);
+            if (name.startsWith("斯诺克")) {
+                name = name.substring(3);
+            }
             Elements tds = tr.select("td");
             //持续时间  yyyy.MM.dd-yyyy.MM.dd
             String duration = tds.last().text();
             //实例化对象
             Match match = new Match();
             match.setId(id);
-            match.setName(name.substring(7));
+            match.setName(name);
             match.setTime(duration);
             match.setType(tds.get(2).text());
             match.setNumber(tds.get(3).text());
