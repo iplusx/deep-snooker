@@ -21,3 +21,6 @@ Desktop.ini
 
 # Mine:
 *.log
+.classpath
+.project
+.settings
