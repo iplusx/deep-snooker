@@ -86,7 +86,8 @@ public class StatsCache {
         List<LiveScore> liveScoreList = new ArrayList<>();
         for (Element btn : viewGameBtns) {
             String tableUrl = btn.attr("href");
-            Elements cols = getElements(LIVESCORES_URL + tableUrl, ".live-match div.row div");
+            tableUrl = LIVESCORES_URL + tableUrl;
+            Elements cols = getElements(tableUrl, ".live-match div.row div");
             Element left = cols.get(0);
             Element middle = cols.get(1);
             Element right = cols.get(2);
@@ -119,6 +120,7 @@ public class StatsCache {
             ScorePanelCommon common = new ScorePanelCommon();
             common.setBestOf(tr1.getElementsByTag("td").first().text().replace("Best of ", ""));
             common.setLeftScore(tr3.getElementsByTag("td").first().text().replace(" points left", ""));
+            common.setUrl(tableUrl);
             //实例化对象并添加到列表中
             liveScoreList.add(new LiveScore(player1, player2, common));
         }

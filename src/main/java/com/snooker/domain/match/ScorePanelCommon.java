@@ -11,6 +11,8 @@ public class ScorePanelCommon {
     private String bestOf;
     //台面剩余
     private String leftScore;
+    //URL
+    private String url;
 
     public String getBestOf() {
         return bestOf;
@@ -26,5 +28,13 @@ public class ScorePanelCommon {
 
     public void setLeftScore(String leftScore) {
         this.leftScore = leftScore;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
