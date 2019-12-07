@@ -43,7 +43,7 @@ public class WxFilter implements Filter{
         }
         else {
             try {
-                logger.info("拦截到非法请求，ip:{}", RequestUtil.getIpAddress(request));
+                logger.info("拦截到非法请求，ip={}\treferer={}", RequestUtil.getIpAddress(request), referer);
                 HttpServletResponse response = (HttpServletResponse) servletResponse;
                 response.setStatus(HttpStatus.FORBIDDEN.value());
             } catch (InnerException e) {
