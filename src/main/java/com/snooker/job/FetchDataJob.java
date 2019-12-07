@@ -26,7 +26,7 @@ public class FetchDataJob {
         logger.info("*****定时任务，爬取比分直播结束*****");
     }
 
-    @Scheduled(cron = "0 0/2 * * * ?")
+    // @Scheduled(cron = "0 0/2 * * * ?")
     public void fetchTodaySchedule() {
         logger.info("*****定时任务，爬取今日赛程开始*****");
         statsCache.putTodaySchedule();

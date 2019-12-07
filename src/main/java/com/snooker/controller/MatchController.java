@@ -53,11 +53,11 @@ public class MatchController extends BaseController{
      * @return
      * @throws InnerException
      */
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public JSONObject queryMatchList(String season) {
-        Set<Match> matchList = matchCrawlerService.getMatchList(season);
-        return buildSuccessJson(matchList);
-    }
+    // @RequestMapping(value = "/list", method = RequestMethod.GET)
+    // public JSONObject queryMatchList(String season) {
+    //     Set<Match> matchList = matchCrawlerService.getMatchList(season);
+    //     return buildSuccessJson(matchList);
+    // }
 
     /**
      * 赛程信息
@@ -66,11 +66,11 @@ public class MatchController extends BaseController{
      * @return
      * @throws InnerException
      */
-    @RequestMapping(value = "/schedule", method = RequestMethod.GET)
-    public JSONObject getSchedule(String id) throws InnerException {
-        List<Schedule> scheduleList = matchCrawlerService.getSchedule(id);
-        return buildSuccessJson(scheduleList);
-    }
+    // @RequestMapping(value = "/schedule", method = RequestMethod.GET)
+    // public JSONObject getSchedule(String id) throws InnerException {
+    //     List<Schedule> scheduleList = matchCrawlerService.getSchedule(id);
+    //     return buildSuccessJson(scheduleList);
+    // }
 
     /**
      * 获取今日比赛
@@ -78,11 +78,11 @@ public class MatchController extends BaseController{
      * @return
      * @throws InnerException
      */
-    @RequestMapping(value = "/today", method = RequestMethod.GET)
-    public JSONObject getToday() throws InnerException {
-        List<Session> sessionList = statsCache.getTodaySchedule();
-        return buildSuccessJson(sessionList);
-    }
+    // @RequestMapping(value = "/today", method = RequestMethod.GET)
+    // public JSONObject getToday() throws InnerException {
+    //     List<Session> sessionList = statsCache.getTodaySchedule();
+    //     return buildSuccessJson(sessionList);
+    // }
 
     /**
      * 存放赛事海报
@@ -90,18 +90,18 @@ public class MatchController extends BaseController{
      * @param request
      * @return
      */
-    @RequestMapping(value = "/poster", method = RequestMethod.POST)
-    public JSONObject putPoster(HttpServletRequest request) {
-        String season = request.getParameter("season");
-        assert season != null;
-        Map<String, String[]> map = request.getParameterMap();
-        for (String matchId : map.keySet()) {
-            matchPosterService.putPoster(matchId, map.get(matchId)[0]);
-        }
+    // @RequestMapping(value = "/poster", method = RequestMethod.POST)
+    // public JSONObject putPoster(HttpServletRequest request) {
+    //     String season = request.getParameter("season");
+    //     assert season != null;
+    //     Map<String, String[]> map = request.getParameterMap();
+    //     for (String matchId : map.keySet()) {
+    //         matchPosterService.putPoster(matchId, map.get(matchId)[0]);
+    //     }
 
-        matchPosterService.emptyListCache(season);
-        return buildSuccessJson();
-    }
+    //     matchPosterService.emptyListCache(season);
+    //     return buildSuccessJson();
+    // }
 
     /**
      * 获取对阵详细数据，带比分直播
@@ -112,10 +112,10 @@ public class MatchController extends BaseController{
      * @return
      * @throws InnerException
      */
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public JSONObject getMatchDetail(String dzid, String date) throws InnerException {
-        return buildSuccessJson(JSONObject.fromObject(matchCrawlerService.getMatchDetail(dzid, date)));
-    }
+    // @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    // public JSONObject getMatchDetail(String dzid, String date) throws InnerException {
+    //     return buildSuccessJson(JSONObject.fromObject(matchCrawlerService.getMatchDetail(dzid, date)));
+    // }
 
     /**
      * 获取对阵列表
@@ -125,8 +125,8 @@ public class MatchController extends BaseController{
      * @return
      * @throws InnerException
      */
-    @RequestMapping(value = "/againstList", method = RequestMethod.GET)
-    public JSONObject getAgainstList(String matchId) throws InnerException {
-        return buildSuccessJson(matchCrawlerService.getAgainstList(matchId), new String[] {"grab", "time"});
-    }
+    // @RequestMapping(value = "/againstList", method = RequestMethod.GET)
+    // public JSONObject getAgainstList(String matchId) throws InnerException {
+    //     return buildSuccessJson(matchCrawlerService.getAgainstList(matchId), new String[] {"grab", "time"});
+    // }
 }
