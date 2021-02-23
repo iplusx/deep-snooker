@@ -30,7 +30,7 @@ import static com.snooker.util.JsoupUtil.getElements;
  */
 @Service
 public class StatsCache {
-    private static final String LIVESCORES_URL = "http://livescores.worldsnookerdata.com";
+    private static final String LIVESCORES_URL = "https://livescores.worldsnookerdata.com";
     private static final Logger logger = LoggerFactory.getLogger(StatsCache.class);
 
     @Autowired
